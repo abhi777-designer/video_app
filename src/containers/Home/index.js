@@ -16,10 +16,6 @@ const Home = () => {
   const [modalVideo, setModalVideo] = useState(false);
   const [searchVideos, setSearchVideos] = useState(null);
 
-  const removeDataHandler = () => {
-    dispatch(removeData());
-  };
-
   useEffect(() => {
     dispatch(fetchVideosData());
   }, []);
@@ -32,14 +28,13 @@ const Home = () => {
         onClose={() => setOpen(false)}
         modalValue={modalDesc}
         modalVideo={modalVideo}
-      />  
+      />
       <Header
         onChange={(event) => {
           setSearchVideos(event.target.value);
         }}
-        onClick={removeDataHandler}
       />
-    
+
       <div className="container-fluid">
         <div className="row">
           {videos
@@ -50,12 +45,13 @@ const Home = () => {
                 return val;
               }
             })
-            .map((val, index) => (
+            .map((val) => (
               <Thumbnail
                 src={val.assets.preview_jpg.url}
                 videoLink={val.assets.thumb_mp4.url}
                 descriptions={val.description}
-                id={index}
+                id={val.id}
+                key={val.id}
                 onClick={() => {
                   setOpen(true);
                   setModalDesc(val.description);

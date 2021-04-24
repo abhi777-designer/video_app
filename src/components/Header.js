@@ -36,9 +36,6 @@ const Header = (props) => (
           ))}
       </ul> */}
     </div>
-    <button type="button" className="resetButton" onClick={props.onClick}>
-      Reset
-    </button>
 
     <div
       className="collapse navbar-collapse justify-content-end"

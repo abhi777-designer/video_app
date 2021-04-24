@@ -21,7 +21,7 @@ const customStyles = {
 };
 
 const VideoModal = (props) => (
-  <Modal onRequestClose={props.onClickClose} {...props} style={customStyles}>
+  <Modal {...props} style={customStyles}>
     <div className="container-modal">
       <div className="row-modal">
         <div className="col-md-12 p-4 border-bottom">
